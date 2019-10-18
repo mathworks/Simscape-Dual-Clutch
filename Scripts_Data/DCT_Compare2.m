@@ -1,6 +1,6 @@
 % SCRIPT TO TEST ALL Dual_Clutch_Trans CONFIGURATIONS
 % OR A SET OF SPECIFIC TESTS
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 
 % SPECIFIC TESTS
 %{

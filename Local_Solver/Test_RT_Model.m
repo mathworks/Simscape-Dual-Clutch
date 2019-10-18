@@ -1,5 +1,5 @@
 %% OPEN MODEL
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 
 mdl = 'Dual_Clutch_Trans_LS';
 open_system(mdl);

@@ -1,4 +1,4 @@
-% Copyright 2013 MathWorks, Inc.
+% Copyright 2013-2016 MathWorks, Inc.
 load_system(mdl);
 
 % RESET CONFIGURABLE SUBSYSTEMS

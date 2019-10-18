@@ -10,4 +10,4 @@ Here are some key points about this demonstration model.
 
 6. This version will only run with R2011a and higher due to the SimDriveline content.
 
-Copyright 2013, MathWorks, Inc.
+Copyright 2013,-2016 MathWorks, Inc.

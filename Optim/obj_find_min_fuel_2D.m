@@ -1,6 +1,6 @@
 function F  = obj_find_min_fuel_2D(params,model,rtp)
 % OBJECTIVE FUNCTION TO FIND SHIFT MAP WITH MINIMUM FUEL USE, 2 PARAMETERS
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 
 % USE PARAMETER VALUE TO CALCULATE NEW SHIFT MAP
 mingeardiff = params(1);

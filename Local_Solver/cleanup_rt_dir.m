@@ -1,5 +1,5 @@
 % CLEANUP RT TEST DIR
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 
 delete('*_LSbio.m')
 delete('*_LSpt.m')

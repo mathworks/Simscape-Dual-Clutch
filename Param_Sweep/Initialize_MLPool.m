@@ -1,4 +1,4 @@
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 
 warning off
 parfor i = 1:2

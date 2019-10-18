@@ -1,5 +1,5 @@
 % SCRIPT TO SET UP Dual_Clutch_Trans SIMULATION
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 
 DCT_Model_HomeDir = pwd;
 addpath(pwd);

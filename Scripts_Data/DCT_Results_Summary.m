@@ -1,5 +1,5 @@
 % SCRIPT TO LOAD ALL RESULTS FILES AND PRINT SUMMARY TO AN EXCEL FILE
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 
 clear DCT_Table_Summary
 

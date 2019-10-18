@@ -1,5 +1,5 @@
 % SCRIPT FOR PLOTTING RESULTS OF OPTIMIZATION
-% Copyright 2011 The MathWorks, Inc.
+% Copyright 2011-2016 The MathWorks, Inc.
 load Engine_DATA_SDO
 load RefRPMData
 
