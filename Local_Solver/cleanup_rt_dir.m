@@ -13,4 +13,5 @@ for i=1:size(rtw_dirs,1)
 end
 bdclose all
 delete('*.mex*')
+delete([mdl '.slx'])
 !rmdir slprj /S/Q
