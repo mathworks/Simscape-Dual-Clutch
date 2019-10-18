@@ -6,126 +6,127 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>DCT Model Demo Script</title><meta name="generator" content="MATLAB 7.13"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2011-12-22"><meta name="DC.source" content="DCT_Model_Demo_Script.m"><style type="text/css">
+      --><title>DCT Model Demo Script</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-02-29"><meta name="DC.source" content="DCT_Model_Demo_Script.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
-body {
-  background-color: white;
-  margin:10px;
-}
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
 
-h1 {
-  color: #990000; 
-  font-size: x-large;
-}
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
 
-h2 {
-  color: #990000;
-  font-size: medium;
-}
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
 
-/* Make the text shrink to fit narrow windows, but not stretch too far in 
-wide windows. */ 
-p,h1,h2,div.content div {
-  max-width: 600px;
-  /* Hack for IE6 */
-  width: auto !important; width: 600px;
-}
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
 
-pre.codeinput {
-  background: #EEEEEE;
-  padding: 10px;
-}
-@media print {
-  pre.codeinput {word-wrap:break-word; width:100%;}
-} 
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
 
-span.keyword {color: #0000FF}
-span.comment {color: #228B22}
-span.string {color: #A020F0}
-span.untermstring {color: #B20000}
-span.syscmd {color: #B28C00}
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
 
-pre.codeoutput {
-  color: #666666;
-  padding: 10px;
-}
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
 
-pre.error {
-  color: red;
-}
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
 
-p.footer {
-  text-align: right;
-  font-size: xx-small;
-  font-weight: lighter;
-  font-style: italic;
-  color: gray;
-}
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
 
   </style></head><body><div class="content"><h1>DCT Model Demo Script</h1><p>
 <span style="font-family:Arial">
 <span style="font-size:10pt">
-<tr><a><b><u>Model</u></b></a><br>
+<tr><b><u>Model</u></b><br>
 <tr>1.  <a href="matlab:open_system('Dual_Clutch_Trans');">Open Dual Clutch Transmission Model</a><br>
-<tr>....a.  Animation: <a href="matlab:dos([DCT_Model_HomeDir '/Libraries/Animation/DCT_SL3D_Anim_DC7.wmv']);">Video</a>,<a href="matlab:open_system('GearSelect_Testrig');">Gear Select Animation</a><br>
+<tr>....a.  Animation: <a href="matlab:open_system('GearSelect_Testrig');">Gear Select Animation</a><br>
 <tr>2.  <a href="matlab:Test_DCT_Model_Short;">Run Drive Cycles</a><br>
 <tr>3.  <a href="matlab:cd([DCT_Model_HomeDir '/Fuel_Consumption']);edit Create_Fuel_Consumption_LUT;">Estimate Fuel Economy With Measured Data</a><br>
-<tr>4.  Shift Map Animation:<a href="matlab:Shift_Map_Sim_Movie('stored');">Drive Cycle 7</a>, <a href="matlab:Shift_Map_Sim_Movie('lastrun');">Previous Simulation</a><br>
+<tr>4.  Shift Map Animation:<a href="matlab:Shift_Map_Sim_Movie('lastrun');">Previous Simulation</a><br>
 <tr>5.  Model Abstraction:<br>
 <tr>....a.  Vehicle Dynamics: <a href="matlab:open_system('Vehicle_Dynamics_Testrig');">Vehicle Dynamics</a><br>
-<tr>....b.  Transmission: <a href="matlab:cd([DCT_Model_HomeDir '/Tune_Abstr_Model']);open_system('Dual_Clutch_Trans_SDO');">Parameter Tuning</a>, <a href="matlab:dos([DCT_Model_HomeDir '\Slides_Recordings\Videos\Tune_Abstr_Model.wmv']);">Video</a><br>
-<tr>....c.  <a href="matlab:Compare_Detailed_Abstracted_SimResults">Plot Comparing Simulation Results</a><br>
+<tr>....b.  Transmission: <a href="matlab:cd([DCT_Model_HomeDir '/Tune_Abstr_Model']);open_system('Dual_Clutch_Trans_SDO');">Parameter Tuning</a><br>
 <br>
-<tr><a><b><u>Simulate</u></b></a><br>
+<tr><b><u>Simulate</u></b><br>
 <tr>6.  Parameter Sweep:<br>
 <tr>....a.  Shift Map Parameterization: <a href="matlab:ShiftMapParamGUI;">Shift Map Parameterization GUI</a><br>
 <tr>....b.  1-D Parameter Sweep (Parallel): <a href="matlab:edit DCT_Parameter_Sweep_1D;">Run Parameter Sweep (1D)</a><br>
 <tr>....c.  2-D Parameter Sweep (Parallel): <a href="matlab:edit DCT_Parameter_Sweep_2D;">Run Parameter Sweep (2D)</a><br>
 <tr>....d.  <a href="matlab:Compare_Det_Abs_Models_2DSweep;">Compare Detailed/Abstracted Models</a><br>
 <tr>7.  Optimization: <br>
-<tr>....a.  1-D Optimization: <a href="matlab:edit find_min_fuel_1D;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptFm1D.wmv']);">Video</a><br>
-<tr>....b.  2-D Opt., fminsearch: <a href="matlab:edit find_min_fuel_2D;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptFm2D.wmv']);">Video</a>, <a href="matlab:open('OptFm2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
-<tr>....c.  2-D Opt., patternsearch: <a href="matlab:edit find_min_fuel_ps2D;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptPS2D.wmv']);">Video</a>, <a href="matlab:open('OptPS2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
-<tr>....d.  Full Opt., patternsearch: <a href="matlab:edit find_min_fuel_psMX;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptPSMX.wmv']);">Video</a><br>
+<tr>....a.  1-D Optimization: <a href="matlab:edit find_min_fuel_1D;">MATLAB Code</a><br>
+<tr>....b.  2-D Opt., fminsearch: <a href="matlab:edit find_min_fuel_2D;">MATLAB Code</a>, <a href="matlab:open('OptFm2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
+<tr>....c.  2-D Opt., patternsearch: <a href="matlab:edit find_min_fuel_ps2D;">MATLAB Code</a>, <a href="matlab:open('OptPS2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
+<tr>....d.  Full Opt., patternsearch: <a href="matlab:edit find_min_fuel_psMX;">MATLAB Code</a><br>
 <tr>8.  Analyze and Document: <a href="matlab:open('DCT_Model_Report_SHORT.html');">View Report</a>, <a href="matlab:cd([DCT_Model_HomeDir '/Reports']);open('DCT_Model_Report_SHORT.rpt');">Generate Report</a><br>
 <br>
-<tr><a><b><u>Deploy</u></b></a><br>
+<tr><b><u>Deploy</u></b><br>
 <tr>9. <a href="matlab:cd([DCT_Model_HomeDir '/Local_Solver']);edit Test_RT_Model">Real-Time Simulation</a><br>
 </style>
 </style>
-</p><p>Copyright 2011-2016 The MathWorks&#8482;, Inc.</p><p class="footer"><br>
-      Published with MATLAB&reg; 7.13<br></p></div><!--
+</p><p>Copyright 2011-2016 The MathWorks&#8482;, Inc.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% DCT Model Demo Script
 %
 % <html>
 % <span style="font-family:Arial">
 % <span style="font-size:10pt">
-% <tr><a><b><u>Model</u></b></a><br>
+% <tr><b><u>Model</u></b><br>
 % <tr>1.  <a href="matlab:open_system('Dual_Clutch_Trans');">Open Dual Clutch Transmission Model</a><br>
-% <tr>....a.  Animation: <a href="matlab:dos([DCT_Model_HomeDir '/Libraries/Animation/DCT_SL3D_Anim_DC7.wmv']);">Video</a>,<a href="matlab:open_system('GearSelect_Testrig');">Gear Select Animation</a><br>
+% <tr>....a.  Animation: <a href="matlab:open_system('GearSelect_Testrig');">Gear Select Animation</a><br>
 % <tr>2.  <a href="matlab:Test_DCT_Model_Short;">Run Drive Cycles</a><br>
 % <tr>3.  <a href="matlab:cd([DCT_Model_HomeDir '/Fuel_Consumption']);edit Create_Fuel_Consumption_LUT;">Estimate Fuel Economy With Measured Data</a><br>
-% <tr>4.  Shift Map Animation:<a href="matlab:Shift_Map_Sim_Movie('stored');">Drive Cycle 7</a>, <a href="matlab:Shift_Map_Sim_Movie('lastrun');">Previous Simulation</a><br>
+% <tr>4.  Shift Map Animation:<a href="matlab:Shift_Map_Sim_Movie('lastrun');">Previous Simulation</a><br>
 % <tr>5.  Model Abstraction:<br>
 % <tr>....a.  Vehicle Dynamics: <a href="matlab:open_system('Vehicle_Dynamics_Testrig');">Vehicle Dynamics</a><br>
-% <tr>....b.  Transmission: <a href="matlab:cd([DCT_Model_HomeDir '/Tune_Abstr_Model']);open_system('Dual_Clutch_Trans_SDO');">Parameter Tuning</a>, <a href="matlab:dos([DCT_Model_HomeDir '\Slides_Recordings\Videos\Tune_Abstr_Model.wmv']);">Video</a><br>
-% <tr>....c.  <a href="matlab:Compare_Detailed_Abstracted_SimResults">Plot Comparing Simulation Results</a><br>
+% <tr>....b.  Transmission: <a href="matlab:cd([DCT_Model_HomeDir '/Tune_Abstr_Model']);open_system('Dual_Clutch_Trans_SDO');">Parameter Tuning</a><br>
 % <br>
-% <tr><a><b><u>Simulate</u></b></a><br>
+% <tr><b><u>Simulate</u></b><br>
 % <tr>6.  Parameter Sweep:<br>
 % <tr>....a.  Shift Map Parameterization: <a href="matlab:ShiftMapParamGUI;">Shift Map Parameterization GUI</a><br>
 % <tr>....b.  1-D Parameter Sweep (Parallel): <a href="matlab:edit DCT_Parameter_Sweep_1D;">Run Parameter Sweep (1D)</a><br>
 % <tr>....c.  2-D Parameter Sweep (Parallel): <a href="matlab:edit DCT_Parameter_Sweep_2D;">Run Parameter Sweep (2D)</a><br>
 % <tr>....d.  <a href="matlab:Compare_Det_Abs_Models_2DSweep;">Compare Detailed/Abstracted Models</a><br>
 % <tr>7.  Optimization: <br>
-% <tr>....a.  1-D Optimization: <a href="matlab:edit find_min_fuel_1D;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptFm1D.wmv']);">Video</a><br>
-% <tr>....b.  2-D Opt., fminsearch: <a href="matlab:edit find_min_fuel_2D;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptFm2D.wmv']);">Video</a>, <a href="matlab:open('OptFm2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
-% <tr>....c.  2-D Opt., patternsearch: <a href="matlab:edit find_min_fuel_ps2D;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptPS2D.wmv']);">Video</a>, <a href="matlab:open('OptPS2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
-% <tr>....d.  Full Opt., patternsearch: <a href="matlab:edit find_min_fuel_psMX;">MATLAB Code</a>, <a href="matlab:dos([DCT_Model_HomeDir '/Optim/Videos/OptPSMX.wmv']);">Video</a><br>
+% <tr>....a.  1-D Optimization: <a href="matlab:edit find_min_fuel_1D;">MATLAB Code</a><br>
+% <tr>....b.  2-D Opt., fminsearch: <a href="matlab:edit find_min_fuel_2D;">MATLAB Code</a>, <a href="matlab:open('OptFm2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
+% <tr>....c.  2-D Opt., patternsearch: <a href="matlab:edit find_min_fuel_ps2D;">MATLAB Code</a>, <a href="matlab:open('OptPS2D_AbsRea_DC7_Mesh.fig');">Figure</a><br>
+% <tr>....d.  Full Opt., patternsearch: <a href="matlab:edit find_min_fuel_psMX;">MATLAB Code</a><br>
 % <tr>8.  Analyze and Document: <a href="matlab:open('DCT_Model_Report_SHORT.html');">View Report</a>, <a href="matlab:cd([DCT_Model_HomeDir '/Reports']);open('DCT_Model_Report_SHORT.rpt');">Generate Report</a><br>
 % <br>
-% <tr><a><b><u>Deploy</u></b></a><br>
+% <tr><b><u>Deploy</u></b><br>
 % <tr>9. <a href="matlab:cd([DCT_Model_HomeDir '/Local_Solver']);edit Test_RT_Model">Real-Time Simulation</a><br>
 % </style>
 % </style>

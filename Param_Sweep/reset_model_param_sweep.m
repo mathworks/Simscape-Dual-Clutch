@@ -1,10 +1,10 @@
 % Copyright 2013-2016 MathWorks, Inc.
 load_system(mdl);
 
-% SET CONFIGURABLE SUBSYSTEMS
-set_param([mdl '/Dual Clutch Transmission'],'BlockChoice','Detailed');
-set_param([mdl '/Vehicle Dynamics'],'BlockChoice','Simple');
-set_param([mdl '/Engine'],'BlockChoice','Generic');
+% RESET SYSTEM VARIANTS
+set_param([mdl '/Dual Clutch Transmission'],'OverrideUsingVariant','Detailed');
+set_param([mdl '/Vehicle Dynamics'],'OverrideUsingVariant','Simple');
+set_param([mdl '/Engine'],'OverrideUsingVariant','Generic');
 
 % TURN ON LOGGING
 set_param([mdl '/Scopes/Engine'],'SaveToWorkspace','on');
@@ -12,10 +12,15 @@ set_param([mdl '/Scopes/Vehicle speed'],'SaveToWorkspace','on');
 set_param([mdl '/Scopes/Gear'],'SaveToWorkspace','on');
 set_param([mdl '/Transmission Controller/Driver/Driver'],'SaveToWorkspace','on');
 set_param([mdl '/Fuel Economy/Fuel Flow'],'SaveToWorkspace','on');
+set_param(mdl,'SimscapeLogType','All')
+
+% UNCOMMENT SLRT SCOPES
+set_param([mdl '/SLRT Scope1'],'Commented','off');
+set_param([mdl '/SLRT Scope2'],'Commented','off');
 
 % SIMULATION SETTINGS
-open_system([mdl '/Desktop Settings']);
-open_system([mdl '/tictoc']);
+Dual_Clutch_Trans_setsolver(mdl,'desktop');
+Dual_Clutch_Trans_tictoc('off');
 set_param(mdl,'SimulationMode','normal')
 
 % DRIVE CYCLE

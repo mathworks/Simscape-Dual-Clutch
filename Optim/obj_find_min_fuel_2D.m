@@ -1,4 +1,4 @@
-function F  = obj_find_min_fuel_2D(params,model,rtp)
+function F  = obj_find_min_fuel_2D(params,model,rtp,fuelUse_h,map_h)
 % OBJECTIVE FUNCTION TO FIND SHIFT MAP WITH MINIMUM FUEL USE, 2 PARAMETERS
 % Copyright 2011-2016 The MathWorks, Inc.
 
@@ -25,7 +25,7 @@ F = Fuel_Used_L;
 assignin('base','Fuel_Used_L',Fuel_Used_L); 
 
 % ADD RESULTS OF CURRENT OPTIMIZATION SIMULATION TO PLOT
-figure(1)
+figure(fuelUse_h)
 hold on
 plot3(mingeardiff,rampconst,Fuel_Used_L,'s',...
     'MarkerEdgeColor','k',...
@@ -34,7 +34,7 @@ plot3(mingeardiff,rampconst,Fuel_Used_L,'s',...
 legend({'Parameter Sweep','Optimization Search'},'Location','NorthWest');
 
 % UPDATE SHIFT MAP PLOT WITH VALUES USED IN THIS OPTIMIZATION STEP
-figure(2)
+figure(map_h)
 Plot_Gear_Shift_Schedule(Pedal_Positions,Upshift_Speeds,Downshift_Speeds);
 set(gca,'XLim',[0 120])
 

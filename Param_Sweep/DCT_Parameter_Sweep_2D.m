@@ -28,8 +28,11 @@ out = cell(1, numSims);
 % VARIABLE FOR SAVING RESULTS
 clear FuelUsedSET
 
+% SET UP FIGURE WINDOW
+map_h = figure;
+
 %% START MATLAB POOL
-matlabpool;
+parpool;
 Initialize_MLPool
 
 %% SIMULATE
@@ -38,7 +41,7 @@ parfor run_i = 1:numSims
     % CALCULATE NEW SHIFT MAP
     [Upshift_Speeds Downshift_Speeds Pedal_Positions] = Calc_Shift_Map_RO(rc(run_i),mg(run_i));
     
-    figure(2)
+    figure(map_h)
     Plot_Gear_Shift_Schedule(Pedal_Positions, Upshift_Speeds, Downshift_Speeds);
     set(gca,'XLim',[0 100]);
     
@@ -59,7 +62,7 @@ for rc_i=1:length(rampconst)
     end
 end
 
-figure(1);
+fuelUse_h = figure;
 set(gcf,'Position',[104   78   560   420]);
 [rc_array mgd_array] = meshgrid(rampconst,mingeardiff);
 mesh(mgd_array,rc_array,FuelUsedSET);
@@ -96,5 +99,5 @@ save(SaveVarName, SaveVarName);
 clear rampconst mingeardiff FuelUsedSET
 
 %% RESET MODEL AND CLOSE POOL
-matlabpool close
+delete(gcp('nocreate'))
 reset_model_param_sweep

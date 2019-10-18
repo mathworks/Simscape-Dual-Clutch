@@ -1,15 +1,20 @@
 % Copyright 2013-2016 MathWorks, Inc.
 load_system(mdl);
 
-% SET CONFIGURABLE SUBSYSTEMS
-set_param([mdl '/Dual Clutch Transmission'],'BlockChoice','Abstracted');
-set_param([mdl '/Vehicle Dynamics'],'BlockChoice','Simple');
-set_param([mdl '/Engine'],'BlockChoice','Generic');
+% SET SYSTEM VARIANTS
+set_param([mdl '/Dual Clutch Transmission'],'OverrideUsingVariant','Abstracted');
+set_param([mdl '/Vehicle Dynamics'],'OverrideUsingVariant','Simple');
+set_param([mdl '/Engine'],'OverrideUsingVariant','Generic');
 
 % SIMULATION SETTINGS
-open_system([mdl '/Real Time Settings']);
-open_system([mdl '/No tictoc']);
+Dual_Clutch_Trans_setsolver(mdl,'realtime')
+Dual_Clutch_Trans_tictoc('off')
 set_param(mdl,'SimulationMode','rapid-accelerator')
+set_param(mdl,'SimscapeLogType','None')
+
+% COMMENT OUT SLRT SCOPES
+set_param([mdl '/SLRT Scope1'],'Commented','on');
+set_param([mdl '/SLRT Scope2'],'Commented','on');
 
 % DRIVE CYCLE
 Drive_Cycle_Num = 7;

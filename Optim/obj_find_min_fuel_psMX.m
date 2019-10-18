@@ -1,4 +1,4 @@
-function F  = obj_find_min_fuel_psMX(model,params_v,rtp)
+function F  = obj_find_min_fuel_psMX(model,params_v,rtp,map_h)
 % OBJECTIVE FUNCTION TO FIND SHIFT MAP WITH MINIMUM FUEL USE, 20 PARAMETERS
 % Copyright 2011-2016 The MathWorks, Inc.
 
@@ -25,7 +25,7 @@ Fuel_Used_L=out.find('FuelUsedLiters');
 F = Fuel_Used_L;
 
 % UPDATE SHIFT MAP PLOT WITH VALUES USED IN THIS OPTIMIZATION STEP
-figure(2)
+figure(map_h)
 Plot_Gear_Shift_Schedule(Pedal_Positions,Upshift_Speeds,Downshift_Speeds);
 set(gca,'XLim',[0 120])
 

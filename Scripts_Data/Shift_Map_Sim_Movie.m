@@ -15,7 +15,7 @@ if (strcmp(dataset,'lastrun'))
     pd_data = interp1(pd_time,pd_data1,gr_time,'linear');
 elseif (strcmp(dataset,'stored'))
     load DCTRES_Det_Ful_Des_Ori_DC7;
-    open_system('Dual_Clutch_Trans/Orig Map');
+    evalin('base','Dual_Clutch_Trans_shiftmaporig');
     vs_data1 = DCTRES_Det_Ful_Des_Ori_DC7.VehicleSpeed.signals.values;
     vs_time = DCTRES_Det_Ful_Des_Ori_DC7.VehicleSpeed.time;
     pd_data1 = DCTRES_Det_Ful_Des_Ori_DC7.Driver.signals(2).values;
@@ -62,14 +62,15 @@ vspt_h = plot(gr_time(trace_length),vs_data(trace_length),'o',...
 xlabel('Time (s)','FontSize',12,'FontWeight','bold');
 ylabel('Spd (kph)','FontSize',12,'FontWeight','bold');
 
-
 % LOOP THROUGH SIMULATION DATA AND UPDATE PLOT DATA USING set COMMAND
 for i=1:10:(length(vs_data)-trace_length)
     try
         set(tr_h,'XData',vs_data(i:i+trace_length),'YData',pd_data(i:i+trace_length));
         set(hd_h,'XData',vs_data(i+trace_length),'YData',pd_data(i+trace_length),'MarkerFaceColor',gearcolors(max(floor(gr_data(i+trace_length)),1)));
         set(vspt_h,'XData',gr_time(i+trace_length),'YData',vs_data(i+trace_length),'MarkerFaceColor',gearcolors(max(floor(gr_data(i+trace_length)),1)));
-        pause(0.0001);
+        pause(0.01);
     catch
     end
 end
+subplot(211);hold off
+subplot(212);hold off

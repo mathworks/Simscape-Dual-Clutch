@@ -20,7 +20,7 @@ close_system(mdl);
 setup_optim2D_plots
 
 % RUN OPTIMIZATION USING PARALLEL COMPUTING
-%matlabpool
+%parpool;
 %options = psoptimset('Vectorized','off','Display','iter','UseParallel','always',...
 %    'TolMesh',0.0025,'CompletePoll','on','InitialMeshSize',0.05,'ScaleMesh','on');
 
@@ -31,7 +31,7 @@ options = psoptimset('Vectorized','off','Display','iter','UseParallel','never',.
 % RUN OPTIMIZATION
 tic;
 [x,fval,exitflag,output] = ...
-    patternsearch(@(x)obj_find_min_fuel_2D(x,mdl,rtp),...
+    patternsearch(@(x)obj_find_min_fuel_2D(x,mdl,rtp,fuelUse_h,map_h),...
     [mingeardiff0 rampconst0],[],[],[],[],[16 0],[20 60],[],options);
 
 Elapsed_Sim_Time = toc;
@@ -57,5 +57,5 @@ saveas(gcf,'OptPS2D_Mesh','fig');
 %}
 
 % RESET MODEL InitFcn -- ONLY NECESSARY FOR OPTIMIZATION
-%matlabpool close
+%delete(gcb);
 reset_model_optim

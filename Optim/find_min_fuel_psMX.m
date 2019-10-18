@@ -47,12 +47,12 @@ b = [mingdiff*ones(size(A,1)-1,1); 120];
 
 % PLOT INITIAL SHIFT MAP
 [Upshift_Speeds Downshift_Speeds Pedal_Positions] = Calc_Shift_Map_DL(delta0,Pedal_Positions);
-figure(2)
+map_h=figure;
 Plot_Gear_Shift_Schedule(Pedal_Positions,Upshift_Speeds,Downshift_Speeds);
 set(gca,'XLim',[0 120])
 
 % RUN OPTIMIZATION USING PARALLEL COMPUTING
-matlabpool
+parpool;
 options = psoptimset('Vectorized','off','Display','iter','UseParallel','always',...
     'TolMesh',0.0025,'CompletePoll','on','InitialMeshSize',0.05,'ScaleMesh','on');
 
@@ -63,7 +63,7 @@ options = psoptimset('Vectorized','off','Display','iter','UseParallel','always',
 % CALL OPTIMIZATION FUNCTION
 tic;
 [x,fval,exitflag,output] = ...
-    patternsearch(@(x)obj_find_min_fuel_psMX(mdl,x,rtp),...
+    patternsearch(@(x)obj_find_min_fuel_psMX(mdl,x,rtp,map_h),...
     delta0_v,A,b,[],[],LB,[],[],options);
 
 Elapsed_Sim_Time = toc;
@@ -105,7 +105,7 @@ set(gca,'XLim',[0 120])
 %saveas(gcf,SaveVarName,'fig');
 
 % RESET MODEL -- REMOVE SETTINGS SPECIFIC TO OPTIMIZATION
-matlabpool close
+delete(gcp('nocreate'))
 reset_model_optim
 
 

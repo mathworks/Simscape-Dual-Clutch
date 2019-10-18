@@ -1,18 +1,23 @@
 %% OPEN MODEL
 % Copyright 2011-2016 The MathWorks, Inc.
 
-mdl = 'Dual_Clutch_Trans_LS';
+mdl = 'Dual_Clutch_Trans';
 open_system(mdl);
 Drive_Cycle_Num = 6;
+set_param(mdl,'StopTime','60');
+
+set_param(mdl,'SimscapeLogType','None');
+set_param(mdl,'SignalLogging','off');
 
 %% GET REFERENCE RESULTS
-%open_system([mdl '/Desktop Settings']);
-%sim(mdl)
+Dual_Clutch_Trans_setsolver(mdl,'desktop')
+sim(mdl)
 t_ref = tout; y_ref = yout;
 clear tout yout
 
 %% CREATE PLOT
 figure(1)
+clf
 set(gcf,'Position',[552    50   472   301]);
 plot(t_ref,y_ref,'k','LineWidth',3)
 title('Comparing Simulation Results','FontSize',14,'FontWeight','Bold');
@@ -20,8 +25,8 @@ xlabel('Time (s)','FontSize',12);ylabel('Vehicle Speed');
 legend({'Reference'},'Location','best')
 
 %% LOAD REAL-TIME SIMULATION SOLVER SETTINGS
-%open_system([mdl '/Real Time Settings']);
-%sim(mdl)
+Dual_Clutch_Trans_setsolver(mdl,'realtime')
+sim(mdl)
 t_fs = tout; y_fs = yout;
 
 %% ADD FIXED-STEP RESULTS TO PLOT

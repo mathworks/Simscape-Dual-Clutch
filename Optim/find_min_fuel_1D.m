@@ -22,7 +22,7 @@ setup_optim1D_plots
 tic;
 [x,fval,exitflag,output] = ...
     fminsearch(@obj_find_min_fuel_1D,rampconst0, ...
-    optimset('Tolx',1e-3,'Display','iter','MaxIter',6),mdl,rtp);
+    optimset('Tolx',1e-3,'Display','iter','MaxIter',6),mdl,rtp,fuelUse_h,map_h);
 
 disp(['Elapsed time for optimization = ' num2str(toc)]);
 

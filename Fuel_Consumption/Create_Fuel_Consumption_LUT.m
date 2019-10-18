@@ -29,7 +29,7 @@ FCMap.Consumption_Table = FCMap_Poly2(SpeedArray,TorqueArray);
 
 % PLOT LOOKUP TABLE AS SURFACE
 surf(SpeedArray,TorqueArray,FCMap.Consumption_Table);
-legend({'Measured Data','Extrapolation'},'Location','Best')
+legend({'Measured Data'},'Location','Best')
 
 % WIDER EXTRAPOLATION
 %numpts = 20;

@@ -13,7 +13,6 @@ addpath([pwd '/Param_Sweep']);
 addpath([pwd '/Param_Sweep/Param_Sweep_Res']);
 addpath([pwd '/Optim']);
 addpath([pwd '/Optim/Optim_Res']);
-%addpath([pwd '/Optim/Videos']);
 addpath([pwd '/Reports']);
 addpath([pwd '/Tune_Abstr_Model']);
 

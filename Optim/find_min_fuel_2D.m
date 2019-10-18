@@ -23,7 +23,7 @@ setup_optim2D_plots
 tic;
 [x,fval,exitflag,output] = ...
     fminsearch(@obj_find_min_fuel_2D,[mingeardiff0 rampconst0], ...
-    optimset('Tolx',1e-3,'Display','iter'),mdl,rtp);
+    optimset('Tolx',1e-3,'Display','iter'),mdl,rtp,fuelUse_h,map_h);
 
 Elapsed_Sim_Time = toc;
 disp(['Elapsed Sim Time = ' num2str(Elapsed_Sim_Time)]);

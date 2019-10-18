@@ -22,8 +22,11 @@ out = cell(1, numSims);
 % VARIABLE FOR SAVING RESULTS
 clear FuelUsedSET
 
+% SET UP FIGURE WINDOW
+map_h = figure;
+
 %% START MATLAB POOL
-matlabpool;
+parpool;
 Initialize_MLPool
 
 %% SIMULATE
@@ -32,12 +35,12 @@ parfor run_i = 1:numSims
     % CALCULATE NEW SHIFT MAP
     [Upshift_Speeds Downshift_Speeds Pedal_Positions] = Calc_Shift_Map_RO(rampconst(run_i),mingeardiff);
     
-    figure(1)
+    figure(map_h)
     Plot_Gear_Shift_Schedule(Pedal_Positions, Upshift_Speeds, Downshift_Speeds);
     set(gca,'XLim',[0 120]);
     
     %disp(['Simulating with rampconst = ' num2str(rampconst(run_i))]);
-    out{run_i} = sim(mdl,SimSettings{run_i});
+    out{run_i} = sim(mdl,SimSettings{run_i});         
     %disp(['FINISHED with rampconst = ' num2str(rampconst(run_i)) ' Fuel Used = ' num2str(FuelUsedLiters)]);
     %FuelUsedSET(run_i) = FuelUsedLiters;
 end
@@ -49,7 +52,7 @@ for i=1:numSims
     FuelUsedSET(i) = out{i}.find('FuelUsedLiters');
 end
 
-figure(1);clf;
+figure(map_h);clf;
 %set(gcf,'Position',[11   356   545   293]);
 plot(rampconst,FuelUsedSET,'b-.o','LineWidth',2,'MarkerFaceColor','b');
 title('Fuel Use With Varying Shift Schedule','FontWeight','Bold','FontSize',14);
@@ -81,6 +84,6 @@ save(SaveVarName, SaveVarName);
 %}
 clear rampconst mingeardiff FuelUsedSET
 
-%% RESET MODEL AND CLOSE POOL 
-matlabpool close
+%% CLOSE PARALLEL POOL
+delete(gcp);
 reset_model_param_sweep

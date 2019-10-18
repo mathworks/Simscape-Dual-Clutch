@@ -50,7 +50,7 @@ DCT_Param.Dog_Clutch.Ring_Stop_Stiffness = 1e+6;    % N/m
 DCT_Param.Dog_Clutch.Ring_Stop_Damping = 1000;      % N/(m/s)
 DCT_Param.Dog_Clutch.Shift_Linkage_Damping = 100;   % N/(m/s)
 
-DCT_Param.Dog_Clutch.Max_Engage_Velocity = Inf; % rad/s
+DCT_Param.Dog_Clutch.Max_Engage_Velocity = 1e6; % rad/s
 DCT_Param.Dog_Clutch.Tooth_Engage_Overlap = 3;   % mm
 
 

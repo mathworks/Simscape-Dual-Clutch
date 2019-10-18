@@ -1,3 +1,5 @@
+% Copyright 2011-2016 The MathWorks, Inc.
+
 SweepData = whos('FuelUsedSweep2D*');
 clear legendstrings
 figure; 
