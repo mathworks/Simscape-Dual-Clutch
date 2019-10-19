@@ -1,10 +1,10 @@
-function Dual_Clutch_Trans_tictoc(enable)
+function Dual_Clutch_Trans_tictoc(mdl,enable)
 % Copyright 2011-2019 The MathWorks, Inc.
 
 if(strcmpi(enable,'on'))
-    set_param(bdroot,'StartFcn','tic;');
-    set_param(bdroot,'StopFcn','Elapsed_Sim_Time = toc; disp([''Elapsed time for '' bdroot '' = '' num2str(Elapsed_Sim_Time)])');
+    set_param(mdl,'StartFcn','tic;');
+    set_param(mdl,'StopFcn','Elapsed_Sim_Time = toc; disp([''Elapsed time for '' bdroot '' = '' num2str(Elapsed_Sim_Time)])');
 else    
-    set_param(bdroot,'StartFcn','');
-    set_param(bdroot,'StopFcn','');
+    set_param(mdl,'StartFcn','');
+    set_param(mdl,'StopFcn','');
 end
