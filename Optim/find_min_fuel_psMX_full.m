@@ -5,7 +5,7 @@
 
 % SETUP MODEL TO USE UPDATED SHIFT SCHEDULE
 mdl = 'Dual_Clutch_Trans';
-setup_model_optim
+setup_model_optim_full
 
 % PRE-GENERATE RAPID ACCELERATOR TARGET
 load_system(mdl);
@@ -58,10 +58,9 @@ set(gca,'XLim',[0 120])
 
 % RUN OPTIMIZATION WITHOUT PARALLEL COMPUTING
 options = psoptimset('Vectorized','off','Display','iter','UseParallel','never',...
-    'TolMesh',0.0025,'CompletePoll','on','InitialMeshSize',0.05,'ScaleMesh','on');
-
-%DCT_minFuelOptResMX.tableDeltas = delta0_v;
-%DCT_minFuelOptResMX.fuelUsed = 10;
+    'TolMesh',0.0025,'CompletePoll','on','InitialMeshSize',0.05,'ScaleMesh','on','MaxFunEvals',50);
+DCT_minFuelOptResMX.tableDeltas = delta0_v;
+DCT_minFuelOptResMX.fuelUsed = 10;
 
 
 % CALL OPTIMIZATION FUNCTION
@@ -112,9 +111,10 @@ set(gca,'XLim',[0 120])
 delete(gcp('nocreate'))
 reset_model_optim
 
-%datestringfile = datestr(now,'yymmddHHMM');
+datestringfile = datestr(now,'yymmddHHMM');
 
-%save(['DCT_minFuelOptResMX_' datestringfile '.mat'], 'DCT_minFuelOptResMX');
+save(['DCT_minFuelOptResMX_' datestringfile '.mat'], 'DCT_minFuelOptResMX');
 
+%save DCT_minFuelOptResMX
 
 

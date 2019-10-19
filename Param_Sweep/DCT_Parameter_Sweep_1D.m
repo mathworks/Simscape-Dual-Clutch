@@ -1,5 +1,5 @@
 %% PERFORM PARAMETER SWEEP
-% Copyright 2011-2017 The MathWorks(TM), Inc.
+% Copyright 2011-2018 The MathWorks(TM), Inc.
 mdl = 'Dual_Clutch_Trans';
 setup_model_param_sweep
 

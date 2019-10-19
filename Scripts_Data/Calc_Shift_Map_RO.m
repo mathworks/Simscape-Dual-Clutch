@@ -1,7 +1,7 @@
 function [upshift_spd, downshift_spd, pedal_pos] = Calc_Shift_Map_RO(rampconst,mingeardiff)
 % CALCULATE SHIFT MAP, RAMP - OFFSET
 % CHANGE ENTIRE SHIFT MAP BASED ON TWO PARAMETERS
-% Copyright 2011-2017 The MathWorks, Inc.
+% Copyright 2011-2018 The MathWorks, Inc.
 
 % CONSTANTS
 updowndiff = 3;

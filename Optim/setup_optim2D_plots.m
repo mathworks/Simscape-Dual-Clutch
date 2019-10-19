@@ -1,4 +1,4 @@
-% Copyright 2013-2017 MathWorks, Inc.
+% Copyright 2013-2018 MathWorks, Inc.
 % PLOT DATA FROM PARAMETER SWEEP
 load FuelUsedSweep2D_AbsRea_1281
 rc = FuelUsedSweep2D_AbsRea_1281.rampconst;
