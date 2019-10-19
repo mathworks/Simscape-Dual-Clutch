@@ -1,4 +1,4 @@
-% Copyright 2011-2016 The MathWorks, Inc.
+% Copyright 2011-2017 The MathWorks, Inc.
 
 SweepData = whos('FuelUsedSweep2D*');
 clear legendstrings
