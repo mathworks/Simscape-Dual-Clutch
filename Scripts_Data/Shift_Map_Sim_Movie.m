@@ -1,6 +1,6 @@
 function Shift_Map_Sim_Movie(dataset)
 % USE MATLAB PLOTTING COMMANDS TO CREATE MOVIE OF LAST DCT SIMULATION
-% Copyright 2011-2018 The MathWorks, Inc.
+% Copyright 2011-2019 The MathWorks, Inc.
 
 % GET DATA -- EITHER LAST SIMULATION RUN OR DATA FROM A STORED SIMULATION
 if (strcmp(dataset,'lastrun'))

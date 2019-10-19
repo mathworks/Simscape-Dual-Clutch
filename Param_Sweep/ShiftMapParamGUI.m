@@ -20,7 +20,7 @@ function varargout = ShiftMapParamGUI(varargin)
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Copyright 2013-2018 MathWorks, Inc.
+% Copyright 2013-2019 MathWorks, Inc.
 
 % Edit the above text to modify the response to help ShiftMapParamGUI
 
