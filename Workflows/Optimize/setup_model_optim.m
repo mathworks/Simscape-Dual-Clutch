@@ -1,4 +1,4 @@
-% Copyright 2013-2019 MathWorks, Inc.
+% Copyright 2013-2020 MathWorks, Inc.
 load_system(mdl);
 
 % SET SYSTEM VARIANTS
@@ -7,7 +7,7 @@ set_param([mdl '/Vehicle Dynamics'],'OverrideUsingVariant','Simple');
 set_param([mdl '/Engine'],'OverrideUsingVariant','Generic');
 
 % SIMULATION SETTINGS
-Dual_Clutch_Trans_setsolver(mdl,'realtime')
+Dual_Clutch_Trans_setsolver(mdl,'desktop')
 Dual_Clutch_Trans_tictoc(mdl,'off')
 set_param(mdl,'SimulationMode','rapid-accelerator')
 set_param(mdl,'SimscapeLogType','None')

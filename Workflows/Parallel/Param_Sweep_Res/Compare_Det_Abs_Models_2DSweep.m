@@ -1,4 +1,4 @@
-% Copyright 2011-2019 The MathWorks, Inc.
+% Copyright 2011-2020 The MathWorks, Inc.
 clear FuelUsedSweep2D* 
 load FuelUsedSweep2D_DetDes_65
 load FuelUsedSweep2D_AbsRea_65

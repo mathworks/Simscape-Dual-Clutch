@@ -1,9 +1,9 @@
 function F  = obj_find_min_fuel_1D(rampconst,model,rtp,fuelUse_h,map_h)
 % OBJECTIVE FUNCTION TO FIND SHIFT MAP WITH MINIMUM FUEL USE, ONE PARAMETER
-% Copyright 2011-2019 The MathWorks, Inc.
+% Copyright 2011-2020 The MathWorks, Inc.
 
 % USE PARAMETER VALUE TO CALCULATE NEW SHIFT MAP
-[Upshift_Speeds Downshift_Speeds Pedal_Positions] = Calc_Shift_Map_RO(rampconst,17);
+[Upshift_Speeds, Downshift_Speeds, Pedal_Positions] = Calc_Shift_Map_RO(rampconst,17);
 assignin('base','Upshift_Speeds',Upshift_Speeds);
 assignin('base','Downshift_Speeds',Downshift_Speeds);
 

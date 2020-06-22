@@ -1,5 +1,5 @@
 %% PERFORM PARAMETER SWEEP
-% Copyright 2011-2019 The MathWorks(TM), Inc.
+% Copyright 2011-2020 The MathWorks(TM), Inc.
 mdl = 'Dual_Clutch_Trans';
 setup_model_param_sweep
 
@@ -33,7 +33,7 @@ Initialize_MLPool
 tic;
 parfor run_i = 1:numSims
     % CALCULATE NEW SHIFT MAP
-    [Upshift_Speeds Downshift_Speeds Pedal_Positions] = Calc_Shift_Map_RO(rampconst(run_i),mingeardiff);
+    [Upshift_Speeds, Downshift_Speeds, Pedal_Positions] = Calc_Shift_Map_RO(rampconst(run_i),mingeardiff);
     
     figure(map_h)
     Plot_Gear_Shift_Schedule(Pedal_Positions, Upshift_Speeds, Downshift_Speeds);

@@ -1,4 +1,4 @@
-% Copyright 2013-2019 MathWorks, Inc.
+% Copyright 2013-2020 MathWorks, Inc.
 % PLOT DATA FROM PARAMETER SWEEP
 load FuelUsedSweep1D_AbsRea_7
 fuelUse_h = figure;
@@ -10,7 +10,7 @@ ylabel('Fuel Used (L)','FontWeight','Bold','FontSize',12);
 legend('Parameter Sweep','Location','NorthWest');
 
 % PLOT INITIAL SHIFT MAP
-[Upshift_Speeds Downshift_Speeds Pedal_Positions] = Calc_Shift_Map_RO(rampconst0,17);
+[Upshift_Speeds, Downshift_Speeds, Pedal_Positions] = Calc_Shift_Map_RO(rampconst0,17);
 map_h = figure;
 set(gcf,'Position',[468   226   560   420]);
 Plot_Gear_Shift_Schedule(Pedal_Positions,Upshift_Speeds,Downshift_Speeds);

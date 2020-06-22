@@ -1,7 +1,7 @@
 function [upshift_spd, downshift_spd, pedal_pos] = Calc_Shift_Map_DL(deltas, pedal_pos)
 % CALCULATE SHIFT MAP, DELTA
 % CALCULATES ENTIRE SHIFT MAP BASED ON DELTAS BETWEEN GEARS AND ALONG PEDAL POSITION
-% Copyright 2011-2019 The MathWorks, Inc.
+% Copyright 2011-2020 The MathWorks, Inc.
 
 % CONSTANTS
 updowndiff = 3;  % MINIMUM SEPARATION BETWEEN UPSHIFT AND DOWNSHIFT

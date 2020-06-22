@@ -1,5 +1,5 @@
 Vehicle with a Dual-Clutch Transmission
-Copyright 2011-2019 The MathWorks, Inc.
+Copyright 2011-2020 The MathWorks, Inc.
 
 This model contains a dual-clutch transmission built using Simscape and 
 Simscape Driveline that can be configured for control algorithm development 

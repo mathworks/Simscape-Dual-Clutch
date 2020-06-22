@@ -1,5 +1,5 @@
 % SCRIPT TO RUN TWO SHORT TESTS AND DISPLAY REPORT
-% Copyright 2011-2019 The MathWorks, Inc.
+% Copyright 2011-2020 The MathWorks, Inc.
 model = 'Dual_Clutch_Trans';
 open_system(model);
 set_param(model,'StopTime','30');
