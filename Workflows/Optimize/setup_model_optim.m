@@ -5,16 +5,13 @@ load_system(mdl);
 set_param([mdl '/Dual Clutch Transmission'],'OverrideUsingVariant','Abstracted');
 set_param([mdl '/Vehicle Dynamics'],'OverrideUsingVariant','Simple');
 set_param([mdl '/Engine'],'OverrideUsingVariant','Generic');
+set_param(mdl,'EnableMultiTasking','off');
 
 % SIMULATION SETTINGS
 Dual_Clutch_Trans_setsolver(mdl,'desktop')
 Dual_Clutch_Trans_tictoc(mdl,'off')
 set_param(mdl,'SimulationMode','rapid-accelerator')
 set_param(mdl,'SimscapeLogType','None')
-
-% COMMENT OUT SLRT SCOPES
-set_param([mdl '/SLRT Scope1'],'Commented','on');
-set_param([mdl '/SLRT Scope2'],'Commented','on');
 
 % DRIVE CYCLE
 Drive_Cycle_Num = 7;

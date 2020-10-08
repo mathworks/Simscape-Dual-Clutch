@@ -8,7 +8,7 @@ mdl = 'Dual_Clutch_Trans';
 setup_model_optim
 
 % SET INITIAL VALUE OF SHIFT MAP PARAMETER
-rampconst0 = 55;
+rampconst0 = 45;
 
 % PRE-GENERATE RAPID ACCELERATOR TARGET
 load_system(mdl);

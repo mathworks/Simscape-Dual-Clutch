@@ -11,10 +11,7 @@ Dual_Clutch_Trans_setsolver(mdl,'desktop');
 Dual_Clutch_Trans_tictoc(mdl,'on');
 set_param(mdl,'SimulationMode','normal')
 set_param(mdl,'SimscapeLogType','All')
-
-% COMMENT OUT SLRT SCOPES
-set_param([mdl '/SLRT Scope1'],'Commented','off');
-set_param([mdl '/SLRT Scope2'],'Commented','off');
+set_param(mdl,'EnableMultiTasking','on');
 
 % DRIVE CYCLE
 Drive_Cycle_Num = 7;
