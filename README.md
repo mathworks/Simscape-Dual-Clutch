@@ -1,6 +1,8 @@
 # **Vehicle with a Dual-Clutch Transmission**
 Copyright 2011-2020 The MathWorks, Inc.
 
+[![View Dual Clutch Transmission Model in Simulink on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/32246-dual-clutch-transmission-model-in-simulink)
+
 This model contains a dual-clutch transmission built using Simscape and 
 Simscape Driveline that can be configured for control algorithm development 
 or optimization tests. The clutch states and pre-selection of the gears 
