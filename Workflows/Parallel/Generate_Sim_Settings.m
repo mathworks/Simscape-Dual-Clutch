@@ -1,5 +1,5 @@
 function [simCmdParamValStructs,rc,mg] = Generate_Sim_Settings(rampconst,mingeardiff,rtp)
-% Copyright 2011-2020 The MathWorks, Inc.
+% Copyright 2011-2021 The MathWorks, Inc.
 
 
 numParamSets = length(rampconst)*length(mingeardiff);

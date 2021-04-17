@@ -1,7 +1,7 @@
 % Optimization script to find shift map that maximizes fuel economy
 % Shift map parameterized with a single parameter
 % Steve Miller
-% Copyright 2011-2020 MathWorks, Inc.
+% Copyright 2011-2021 MathWorks, Inc.
 
 % SETUP MODEL FOR OPTIMIZATION
 mdl = 'Dual_Clutch_Trans';

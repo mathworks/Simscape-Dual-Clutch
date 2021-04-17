@@ -1,6 +1,6 @@
 % CREATE PLOTS COMPARING DETAILED AND ABSTRACTED SIMULATIONS
 % FOR DRIVE CYCLE 4
-% Copyright 2011-2020 The MathWorks, Inc.
+% Copyright 2011-2021 The MathWorks, Inc.
 
 clear DCTRES*
 close all
