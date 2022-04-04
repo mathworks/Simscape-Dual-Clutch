@@ -6,7 +6,7 @@
 % half-gear states indicate gear shifts are taking place by engaging and
 % disengaging the dual clutches.
 
-% Copyright 2016-2021 The MathWorks, Inc.
+% Copyright 2016-2022 The MathWorks, Inc.
 
 % Generate simulation results if they don't exist
 if ~exist('simlog_Dual_Clutch_Trans', 'var')

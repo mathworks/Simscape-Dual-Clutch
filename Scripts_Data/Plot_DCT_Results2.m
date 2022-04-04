@@ -1,5 +1,5 @@
 % SCRIPT TO OVERLAY TWO RUNS OF Dual_Clutch_Trans
-% Copyright 2011-2021 The MathWorks, Inc.
+% Copyright 2011-2022 The MathWorks, Inc.
 PlotStyles = {'b-' 'r--'};
 LineWidths = [5 2];
 

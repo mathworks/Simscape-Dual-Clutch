@@ -1,5 +1,5 @@
 % Startup script for project Dual_Clutch_Trans.prj
-% Copyright 2011-2021 The MathWorks, Inc.
+% Copyright 2011-2022 The MathWorks, Inc.
 
 DCT_Model_HomeDir = pwd;
 DCT_Model_PARAM
