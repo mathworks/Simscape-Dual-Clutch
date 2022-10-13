@@ -19,7 +19,7 @@
 
 open_system('Dual_Clutch_Trans')
 
-set_param(find_system('Dual_Clutch_Trans','FindAll', 'on','type','annotation','Tag','ModelFeatures'),'Interpreter','off')
+set_param(find_system('Dual_Clutch_Trans','MatchFilter',@Simulink.match.allVariants,'FindAll', 'on','type','annotation','Tag','ModelFeatures'),'Interpreter','off')
 
 %% Abstract Transmission Subsystem
 %
