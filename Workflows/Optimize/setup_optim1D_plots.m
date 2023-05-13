@@ -1,4 +1,4 @@
-% Copyright 2013-2022 MathWorks, Inc.
+% Copyright 2013-2023 MathWorks, Inc.
 % PLOT DATA FROM PARAMETER SWEEP
 load FuelUsedSweep1D_AbsRea_7
 fuelUse_h = figure;

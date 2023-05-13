@@ -1,5 +1,5 @@
 function Dual_Clutch_Trans_setanimation(enable)
-% Copyright 2011-2022 The MathWorks, Inc.
+% Copyright 2011-2023 The MathWorks, Inc.
 
 var_str = 'Disable';
 if(strcmpi(enable,'on'))

@@ -1,4 +1,4 @@
-% Copyright 2013-2022 MathWorks, Inc.
+% Copyright 2013-2023 MathWorks, Inc.
 load_system(mdl);
 
 % RESET SYSTEM VARIANTS
