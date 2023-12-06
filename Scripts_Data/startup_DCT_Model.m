@@ -16,7 +16,7 @@ if(~isempty(ver('parallel')))
 end
 
 if(open_start_content)
-    open('DCT_Model_Demo_Script.html')
+    web('DCT_Model_Demo_Script.html')
     Dual_Clutch_Trans
 end
 
