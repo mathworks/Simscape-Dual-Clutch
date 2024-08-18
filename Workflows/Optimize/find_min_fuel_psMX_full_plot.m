@@ -1,4 +1,4 @@
-% Copyright 2011-2023 The MathWorks, Inc.
+% Copyright 2011-2024 The MathWorks, Inc.
 % Animate evolution of shift table during full optimization
 
 pedalpos_4plot = [0.1 0.4 0.5 0.9];

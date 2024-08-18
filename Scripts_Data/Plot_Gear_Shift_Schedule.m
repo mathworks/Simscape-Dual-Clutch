@@ -1,6 +1,6 @@
 function Plot_Gear_Shift_Schedule(pedal_pos,upshift_spd,downshift_spd)
 % CREATE PLOT OF SHIFT SCHEDULE
-% Copyright 2011-2023 The MathWorks, Inc.
+% Copyright 2011-2024 The MathWorks, Inc.
 
 colors = ['b','g','r','m','c'];
 

@@ -1,5 +1,5 @@
 % DEFINE ALL PARAMETERS FOR Dual_Clutch_Trans Model
-% Copyright 2011-2023 The MathWorks, Inc.
+% Copyright 2011-2024 The MathWorks, Inc.
 
 T_max=370;  
 decimation = 1;

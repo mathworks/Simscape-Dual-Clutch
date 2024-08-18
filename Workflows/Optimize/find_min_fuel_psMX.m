@@ -1,7 +1,7 @@
 % Optimization script to find shift map that maximizes fuel economy
 % Shift map parameterized with 20 parameters
 % Steve Miller
-% Copyright 2011-2023 MathWorks, Inc.
+% Copyright 2011-2024 MathWorks, Inc.
 
 % SETUP MODEL TO USE UPDATED SHIFT SCHEDULE
 mdl = 'Dual_Clutch_Trans';
