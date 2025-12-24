@@ -1,34 +1,52 @@
-% Optimization script to find shift map that maximizes fuel economy
-% Shift map parameterized with two parameters
-% Steve Miller
-% Copyright 2011-2024 MathWorks, Inc.
+%% Dual Clutch Transmission - Optimization, 2 Parameters, Patternsearch
+%
+% This example shows a vehicle with a five-speed automatic dual-clutch
+% transmission. The transmission controller converts the pedal deflection
+% into a demanded torque. This demanded torque is then passed to the engine
+% management. The pedal deflection and the vehicle speed are also used by
+% the transmission controller to determine when the gear shifts should
+% occur. Gear shifts are implemented via the two clutches, one clutch
+% pressure being ramped up as the other clutch pressure is ramped down.
+% Gear pre-selection via dog clutches ensures that the correct gear is
+% fully selected before the on-going clutch is enabled.
+% 
+% The script below uses optimization algorithms to find shift map that
+% maximizes fuel economy. The shift map is parameterized with 2 parameters
+% to limit the design space. The optimization algorithm used is patternsearch.
+%
+% Copyright 2014-2025 The MathWorks, Inc.
 
-% SETUP MODEL TO USE UPDATED SHIFT SCHEDULE
+%% Setup Optimization
+% Setup model 
 mdl = 'Dual_Clutch_Trans';
 setup_model_optim
 
-% SET INITIAL VALUE OF SHIFT MAP PARAMETERS
+% Set initial value of shift map parameters
 rampconst0 = 35;
 mingeardiff0 = 18;
 
-% PRE-GENERATE RAPID ACCELERATOR TARGET
+% Pre-generate rapid accelerator target
 load_system(mdl);
 rtp = Simulink.BlockDiagram.buildRapidAcceleratorTarget(mdl,'AddTunableParamInfo','on');
 close_system(mdl);
 
-% CREATE PLOTS OF PARAMETER SWEEP, INITIAL SHIFT MAP
+% Create plots of parameter sweep, initial shift map
 setup_optim2D_plots
 
-% RUN OPTIMIZATION USING PARALLEL COMPUTING
+%% Run optimization 
+close all
+setup_optim2D_plots
+
+% using parallel computing
 %parpool;
 %options = psoptimset('Vectorized','off','Display','iter','UseParallel','always',...
 %    'TolMesh',0.0025,'CompletePoll','on','InitialMeshSize',0.05,'ScaleMesh','on');
 
-% RUN OPTIMIZATION WITHOUT PARALLEL COMPUTING
+% Run optimization without parallel computing
 options = psoptimset('Vectorized','off','Display','iter','UseParallel','never',...
     'TolMesh',0.0025,'CompletePoll','on','InitialMeshSize',0.05,'ScaleMesh','on');
 
-% RUN OPTIMIZATION
+% Run optimization
 tic;
 [x,fval,exitflag,output] = ...
     patternsearch(@(x)obj_find_min_fuel_2D(x,mdl,rtp,fuelUse_h,map_h),...
@@ -37,7 +55,7 @@ tic;
 Elapsed_Sim_Time = toc;
 disp(['Elapsed Sim Time = ' num2str(Elapsed_Sim_Time)]);
 
-% SAVE KEY RESULTS OF OPTIMIZATION
+% Save key results of optimization
 %{
 mingeardiff_final = x(1);
 rampconst_final = x(2);
@@ -56,6 +74,6 @@ figure(1)
 saveas(gcf,'OptPS2D_Mesh','fig');
 %}
 
-% RESET MODEL InitFcn -- ONLY NECESSARY FOR OPTIMIZATION
+% Reset model InitFcn -- only necessary for optimization
 %delete(gcb);
 reset_model_optim

@@ -30,10 +30,12 @@ Plot_Gear_Shift_Schedule(Pedal_Positions,Upshift_Speeds,Downshift_Speeds);
 set(gca,'XLim',[0 120])
 
 % Save results for plotting
+try
 assignin('base','tableDeltas',params_v);
 assignin('base','fuelUsed',Fuel_Used_L);
 evalin('base',['DCT_minFuelOptResMX(end+1).tableDeltas = tableDeltas;']);
 evalin('base',['DCT_minFuelOptResMX(end).fuelUsed = fuelUsed;']);
-
+catch
+end
 end
 
