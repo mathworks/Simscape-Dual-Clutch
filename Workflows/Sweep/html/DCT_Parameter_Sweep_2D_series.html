@@ -7,7 +7,7 @@ This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
       -->
 <title>Dual Clutch Transmission - Parameter Sweep, 1 Parameter, Series Runs</title>
-<meta name="generator" content="MATLAB 25.1">
+<meta name="generator" content="MATLAB 25.2">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
 <meta name="DC.date" content="2025-12-22">
 <meta name="DC.source" content="DCT_Parameter_Sweep_2D_series.m">
@@ -94,10 +94,10 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 </div>
 <h2 id="1">Model</h2>
 <img vspace="5" hspace="5" src="DCT_Parameter_Sweep_2D_series_01.png" alt=""> <h2 id="2">Run Parameter Sweep</h2>
-<pre class="codeoutput">Elapsed Sim Time = 949.4552
+<pre class="codeoutput">Elapsed Sim Time = 509.2481
 </pre>
 <img vspace="5" hspace="5" src="DCT_Parameter_Sweep_2D_series_02.png" alt=""> <img vspace="5" hspace="5" src="DCT_Parameter_Sweep_2D_series_03.png" alt=""> <p class="footer">Copyright 2014-2025 The MathWorks, Inc.<br>
-<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2025a</a>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2025b</a>
 <br>
 </p>
 </div>
@@ -237,6 +237,12 @@ clear rampconst mingeardiff FuelUsedSET
 
 % Reset model and close pool
 reset_model_param_sweep
+
+% Reset model and close pool
+bdclose(mdl);
+%delete('*.mex*')
+%!rmdir slprj /S/Q
+delete([mdl '.slx']);
 
 ##### SOURCE END #####
 -->

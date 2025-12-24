@@ -57,7 +57,7 @@ optimList = {...
     'find_min_fuel_psMX_series',...
     'find_min_fuel_psMX_para'};
 
-for optimList_i = 1:4%length(optimList)
+for optimList_i = 1:4%1:length(optimList)
 
     % Move to folder with publish scripts
     cd(fileparts(which(optimList{optimList_i})))
